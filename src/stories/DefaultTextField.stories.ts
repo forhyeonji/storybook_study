@@ -11,6 +11,11 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    id: {
+      control: 'text',
+      description: '텍스트 필드의 id',
+      defaultValue: ''
+    },
     iconPath: { control: 'text', description: '이미지의 경로' },
     iconAlt: { control: 'text', description: '이미지의 alt' },
     onIconClick: { action: 'clicked', description: '버튼 클릭 이벤트' },
@@ -44,6 +49,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    id: 'email',
     iconAlt: 'icon',
     iconPath: deleteIcon,
     placeholder: '텍스트를 입력해주세요',
