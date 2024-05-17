@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import NavigationBar from '../components/NavigationBar';
 import { fn } from '@storybook/test';
-import deleteIcon from '../assets/icon/black_x_icon.svg';
 
 const meta = {
   title: 'TextFields/NavigationBar',
@@ -10,7 +9,19 @@ const meta = {
     layout: 'centered'
   },
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <div style={{ width: '360px' }}>
+        <Story />
+      </div>
+    )
+  ],
   argTypes: {
+    isDark: {
+      control: 'boolean',
+      description: '다크모드 여부',
+      defaultValue: false
+    },
     showBackButton: {
       control: 'boolean',
       description: '뒤로가기 버튼 표시 여부',
@@ -51,6 +62,7 @@ export const Default: Story = {
     showBackButton: true,
     showCloseButton: true,
     showTitle: true,
+    isDark: false,
     title: '타이틀'
   }
 };

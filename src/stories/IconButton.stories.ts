@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import IconButton from '../components/IconButton';
 import { fn } from '@storybook/test';
-import deleteIcon from '../assets/icon/black_x_icon.svg';
+import deleteIcon from '../assets/icon/close.svg';
 
 const meta = {
   title: 'Buttons/IconButton',
@@ -17,7 +17,7 @@ const meta = {
       defaultValue: ''
     },
     iconPath: { control: 'text', description: '이미지의 경로' },
-    onClick: { control: 'clicked', description: '버튼 클릭 이벤트' }
+    onClick: { action: 'clicked', description: '버튼 클릭 이벤트' }
   },
   args: { onClick: fn() }
 } satisfies Meta<typeof IconButton>;

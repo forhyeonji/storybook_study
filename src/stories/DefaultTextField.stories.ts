@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import DefaultTextField from '../components/DefaultTextField';
 import { fn } from '@storybook/test';
-import deleteIcon from '../assets/icon/black_x_icon.svg';
+import deleteIcon from '../assets/icon/close.svg';
 
 const meta = {
   title: 'TextFields/DefaultTextField',

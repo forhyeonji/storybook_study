@@ -1,7 +1,11 @@
 import IconButton from './IconButton';
-import closeIcon from '../assets/icon/black_x_icon.svg';
+import closeIcon from '../assets/icon/close.svg';
+import whiteCloseIcon from '../assets/icon/close_white.svg';
+import backArrowIcon from '../assets/icon/back_arrow.svg';
+import whiteBackArrowIcon from '../assets/icon/back_arrow_white.svg';
 
-interface INavigationBar {
+interface INavigationBarProps {
+  isDark: boolean;
   showBackButton: boolean;
   showCloseButton: boolean;
   showTitle: boolean;
@@ -11,26 +15,37 @@ interface INavigationBar {
 }
 
 export default function NavigationBar({
+  isDark,
   showBackButton,
   showCloseButton,
   showTitle,
   title = '',
   onBackButtonClick = () => {},
   onCloseButtonClick = () => {}
-}: INavigationBar) {
+}: INavigationBarProps) {
   return (
-    <div>
+    <div className="w-full flex justify-between">
       {/* 뒤로가기 버튼 */}
-      {showBackButton && (
-        <IconButton alt="" iconPath="" onClick={onBackButtonClick} />
-      )}
-      {/* 페이지 이름 */}
-      {showTitle && <h1>{title}</h1>}
+      <div className="navigation-title-wrapper flex">
+        {showBackButton && (
+          <IconButton
+            alt="back-arrow"
+            iconPath={isDark ? backArrowIcon : whiteBackArrowIcon}
+            onClick={onBackButtonClick}
+          />
+        )}
+        {/* 페이지 이름 */}
+        {showTitle && (
+          <h1 className={`text-2xl ${isDark ? 'text-primary' : 'text-white'}`}>
+            {title}
+          </h1>
+        )}
+      </div>
       {/* 닫기 버튼 */}
       {showCloseButton && (
         <IconButton
           alt="close-icon"
-          iconPath={closeIcon}
+          iconPath={isDark ? closeIcon : whiteCloseIcon}
           onClick={onCloseButtonClick}
         />
       )}
